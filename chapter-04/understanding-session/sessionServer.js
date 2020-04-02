@@ -39,11 +39,11 @@ const parseCookies = (cookie = "") =>
         res.writeHead(200, {'Content-Type': 'text/html; charset=utf-8'});
         res.end(`${cookies.name}, 하이하잉!`);
       } else {
-        fs.ReadFile('./sessionPage.html', (err, data) => {
+        fs.readFile('./sessionPage.html', (err, data) => {
           if (err) {
             throw err;
           } 
-          res.end(Data);
+          res.end(data);
         });
       }
     })
