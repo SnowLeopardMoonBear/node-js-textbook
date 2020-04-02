@@ -29,15 +29,15 @@ const parseCookies = (cookie = "") =>
     
         res.writeHead(302, {
           Location: '/',
-          'Set-Cookie': `name=${encodeURIComponent(name)};
-          Expires=${expires.toGMTstring()}; HttpOnly; Path=/`,
+          'Set-Cookie':`name=${encodeURIComponent(name)};
+          Expires=${expires.toGMTString()}; HttpOnly; Path=/`,
         });
         res.end();
       }
       // Get name from cookie when a name already exists. 
       else if(cookies.name) {
         res.writeHead(200, {'Content-Type': 'text/html; charset=utf-8'});
-        res.end(`${cookies.name}, 하이하잉!`);
+        res.end(`${cookies.name}, hi!`);
       } else {
         fs.readFile('./sessionPage.html', (err, data) => {
           if (err) {
