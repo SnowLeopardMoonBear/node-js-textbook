@@ -19,6 +19,7 @@ const parseCookies = (cookie = "") =>
 
     http.createServer((req, res) => {
       const cookies = parseCookies(req.headers.cookie);
+      // When accessing login page via url, show 
       if (req.url.startsWith('/login')) {
         // Put the value named query inside an object named the same. const query = {query:url.parse(req.url)}
         const { query } = url.parse(req.url); //save value of url request querystring
@@ -37,5 +38,15 @@ const parseCookies = (cookie = "") =>
       else if(cookies.name) {
         res.writeHead(200, {'Content-Type': 'text/html; charset=utf-8'});
         res.end(`${cookies.name}, 하이하잉!`);
+      } else {
+        fs.ReadFile('./sessionPage.html', (err, data) => {
+          if (err) {
+            throw err;
+          } 
+          res.end(Data);
+        });
       }
     })
+      .listen(8083, () => {
+        console.log('서버를 만든 뒤 마지막으로 8083 포트로 데이터를 쏴주라고 요청합니다')
+      });
