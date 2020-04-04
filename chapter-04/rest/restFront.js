@@ -15,7 +15,7 @@ function getUser() {// User fetches this function while loading.
         if (!name) {
           return alert('이름이 뭐요!!');
         }
-        var xhr = new XMLHttpRequest();
+        var xhr = new XMLHttpRequest(); // request 보낼 때 사용하는 객체. 통신을 위해 꼭 필요. 바닐라js에서는.
         xhr.onload = function() {
           if (xhr.status === 200) {
             console.log(xhr.responseText);
