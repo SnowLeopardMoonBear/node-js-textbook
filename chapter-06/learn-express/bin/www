@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+// 세팅 파일이 들어있음. 포맷은 자바스크립튼데, 확장자를 따로 표기하진 않고, 맨 윗줄이 node에서 인식케 하는 명령어.
 /**
  * Module dependencies.
  */
