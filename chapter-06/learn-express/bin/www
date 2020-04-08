@@ -29,8 +29,8 @@ var server = http.createServer(app); //app으로 서버 만들기.
  */
 
 server.listen(port);
-server.on('error', onError);
-server.on('listening', onListening);
+server.on('error', onError); // 에러 이벤트 발생시 onError 함수 실행
+server.on('listening', onListening); // listening 이벤트시 onListening 함수 실행
 
 
 // 아래는 사용되는 함수들. 나중에 지정되어도 상관 없다.
