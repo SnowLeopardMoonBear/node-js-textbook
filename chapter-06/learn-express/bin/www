@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 
-// 세팅 파일이 들어있음. 포맷은 자바스크립튼데, 확장자를 따로 표기하진 않고, 맨 윗줄이 node에서 인식케 하는 명령어.
+// 서버를 실행하는 스크립트. 포맷은 자바스크립튼데, 확장자를 따로 표기하진 않고, 맨 윗줄이 node에서 인식케 하는 명령어.
+// package.json 에서 start 스크립트에 이 파일을 가장 먼저 실행하도록 나와있다. 
+// app, debug, http를 각각 불러옴
 /**
  * Module dependencies.
  */
@@ -13,14 +15,14 @@ var http = require('http');
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '3000');
+var port = normalizePort(process.env.PORT || '3000'); // argument로 function 안에 넣어줄 땐, 계산식의 결과값이 아니라 둘 중 존재하는 값으로 할당.
 app.set('port', port);
 
 /**
  * Create HTTP server.
  */
 
-var server = http.createServer(app);
+var server = http.createServer(app); //app으로 서버 만들기.
 
 /**
  * Listen on provided port, on all network interfaces.
@@ -29,6 +31,9 @@ var server = http.createServer(app);
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
+
+
+// 아래는 사용되는 함수들. 나중에 지정되어도 상관 없다.
 
 /**
  * Normalize a port into a number, string, or false.
